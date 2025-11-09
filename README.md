@@ -82,6 +82,32 @@ If there is a tie, the candidate listed first in the above order wins:
   other candidates are tied, then Meg A. Byte wins.
 * Oliver Seton only wins if he has a higher score than the other candidates.
 
+## Approach to coding
+
+I am a fan of functional programming, which has informed how I write this
+Python code. 
+
+My approach to coding is to divide up the program into "pure" functions as
+much as possible (i.e. no side effects and it returns a value). As this
+program is not overly complex, I have not felt the need to divide up the
+main program into further functions, so I have just commented the main
+parts of the code. 
+
+One technique that I am a fan of is to define preconditions via assert
+statements at the start of functions to ensure any callers pass in the
+correct values and if they don't then it gets discovered at runtime.
+
+By keeping the functions pure, this makes it easy for me to write unit tests
+to ensure they work correctly. I have used Python's builtin unittest module
+for the unit tests.
+
+Whilst figuring out how to code in Python (I'm a relative newbie) I
+discovered the joy of generator expressions and list comprehensions. I
+have only used a generator expression, as whilst I initially used a
+list comprehension as a filter in the function that determines the
+winner, I realised that I was overcomplication things so, sadly, I
+couldn't show off this feature.
+ 
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
