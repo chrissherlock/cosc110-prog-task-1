@@ -38,9 +38,9 @@ The voting process is as follows:
     three candidates. The candidates are listed in the following order
     (which was randomly selected):
 
-    1.  William Gorithm
-    2.  Meg A. Byte
-    3.  Oliver Seton
+    1. William Gorithm
+    2. Meg A. Byte
+    3. Oliver Seton
 
 Each candidate must be assigned a score (an integer number between 0 and
 9), where 9 indicates the most preferred candidate and 0 indicates the
@@ -53,10 +53,9 @@ but this is not required for this assessment.
 Once voting ends (when a blank voter ID is entered), the program should
 determine the winner using the [Score Voting Method](https://en.wikipedia.org/wiki/Score_voting):
 
-    Each candidate earns an integer score between 0 and 9 in each ballot,
-    where a more preferred candidate gets a higher score. The candidate
-    with the highest average score wins the election.
-
+> Each candidate earns an integer score between 0 and 9 in each ballot,
+> where a more preferred candidate gets a higher score. The candidate
+> with the highest average score wins the election.
 
 If there is a tie, the candidate listed first in the above order wins:
 
