@@ -19,6 +19,7 @@ def get_candidate_average_votes(votes: list) -> float:
     """gets the average votes for a candidate"""
 
     # preconditions
+    assert isinstance(votes, list)
     assert len(votes) > 0
 
     # all the votes must be an integer - here I use a generator expression to
@@ -40,6 +41,9 @@ def determine_winner(tally: dict) -> str:
       other candidates are tied, then Meg A. Byte wins.
     * Oliver Seton only wins if he has a higher score than the other
       candidates."""
+
+    # preconditions
+    assert isinstance(tally, dict)
 
     if tally["William Gorithm"] >= tally["Meg A. Byte"] and tally["William Gorithm"] >= tally["Oliver Seton"]:
         return "William Gorithm"
