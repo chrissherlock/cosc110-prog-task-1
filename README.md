@@ -22,7 +22,7 @@ To test the program, run:
 foo@bar:~$ ./test.sh
 ```
 
-Use the --unittest parameter to run the unit tests, and --interactiontest
+Use the ```--unittest``` parameter to run the unit tests, and ```--interactiontest```
 to run the interaction tests.
 
 ## Problem statement
