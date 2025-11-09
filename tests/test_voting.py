@@ -6,7 +6,7 @@ import unittest
 
 from src.voting import *
 
-class TestVerifications(unittest.TestCase):
+class TestVoting(unittest.TestCase):
     """Test suite for voting module"""
 
     def test_has_aleady_voted(self):
