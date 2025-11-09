@@ -1,28 +1,22 @@
 #!/usr/bin/env python3
 
 import unittest
-from src.verify import is_integer, is_valid_voterid
+from src.verify import is_valid_voterid
 
 class TestVerifications(unittest.TestCase):
     """Test suite for verifications module"""
 
-    def test_is_integer(self):
-        """Test the is_integer function."""
-        self.assertTrue(is_integer(1111))
-        self.assertFalse(is_integer(1.111))
-        self.assertFalse(is_integer("abcd"))
-
     def test_is_valid_voterid(self):
         """Test to ensure voter ID is a 7-digit integer"""
-        self.assertTrue(is_valid_voterid(1000000))
-        self.assertTrue(is_valid_voterid(5555555))
-        self.assertTrue(is_valid_voterid(9999999))
+        self.assertTrue(is_valid_voterid("1000000"))
+        self.assertTrue(is_valid_voterid("5555555"))
+        self.assertTrue(is_valid_voterid("9999999"))
 
         # 6 digit integer
-        self.assertFalse(is_valid_voterid(999999))
+        self.assertFalse(is_valid_voterid("999999"))
 
         # negative 7 digit integer
-        self.assertFalse(is_valid_voterid(-9999999))
+        self.assertFalse(is_valid_voterid("-9999999"))
 
         # not an integer
         self.assertFalse(is_valid_voterid("abcde"))
