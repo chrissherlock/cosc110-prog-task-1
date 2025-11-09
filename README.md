@@ -114,7 +114,7 @@ Whilst figuring out how to code in Python (I'm a relative newbie) I
 discovered the joy of generator expressions and list comprehensions. I
 have only used a generator expression, as whilst I initially used a
 list comprehension as a filter in the function that determines the
-winner, I realised that I was overcomplication things so, sadly, I
+winner, I realised that I was overcomplicating things so, sadly, I
 couldn't show off this feature.
  
 ## License
