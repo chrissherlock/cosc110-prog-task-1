@@ -85,7 +85,10 @@ If there is a tie, the candidate listed first in the above order wins:
 ## Approach to coding
 
 I am a fan of functional programming, which has informed how I write this
-Python code. 
+Python code. This means I have hinted the types of the parameters and, as
+Python doesn't enforce parameter types I have an assert to enforce the type
+for me. I also use Python3's return type hints (a syntax I like as it
+reminds me of Haskell).
 
 My approach to coding is to divide up the program into "pure" functions as
 much as possible (i.e. no side effects and it returns a value). As this
