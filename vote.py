@@ -30,3 +30,9 @@ while True:
 
     for key in candidates:
         vote_pref = input(prompt_text_for_candidate(key))
+
+        while not is_valid_vote(vote_pref):
+            print("Please enter an integer score between 0 and 9")
+            vote_pref = input(prompt_text_for_candidate(key))
+
+        candidates[key].append(vote_pref)
