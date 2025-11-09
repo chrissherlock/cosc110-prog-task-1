@@ -3,14 +3,14 @@
 from src.verify import *
 from src.voting import *
 
-# ask for a voter id until a blank is entered
-
 voters = []
 candidates = {
     "William Gorithm": [],
     "Meg A. Byte": [],
     "Oliver Seton": []
 }
+
+# ask for a voter id until a blank is entered
 
 while True:
     voterid = input("Please enter Voter ID: ")
@@ -37,12 +37,17 @@ while True:
 
         candidates[candidate].append(int(vote_pref))
 
+# get the tally of all the votes for the candidates and determine the winner
+
 tally = {}
 
 for candidate in candidates:
     tally[candidate] = get_candidate_average_votes(candidates[candidate])
 
 winner = determine_winner(tally)
+
+# output the results of the election, with the average votes for each candidate,
+# and the name of the actual winner
 
 print("\nResults\n")
 

@@ -3,7 +3,21 @@
 from .verify import *
 
 def has_already_voted(voters: list, voterid: str) -> bool:
-    """checks that the value entered is an integer"""
+    """
+    Checks that the value entered is an integer.
+
+    Args:
+        voters(list): list of voters who have already voted.
+
+    Preconditions:
+        - voters parameter is a list
+        - voterid parameter is a string
+        - the voterid is valid
+
+    Returns:
+        True if the voter has already voted, False if the voter has
+        not voted.
+    """
 
     # preconditions
     assert isinstance(voters, list)
@@ -13,10 +27,39 @@ def has_already_voted(voters: list, voterid: str) -> bool:
     return voterid in voters
 
 def prompt_text_for_candidate(candidate: str) -> str:
+    """
+    Generates the prompt to rate a candidate.
+
+    Args:
+        candidate(str): name of the candidate to be rated
+
+    Preconditions:
+        - candidate parameter is a string
+
+    Returns:
+        Prompt string with the candidate name.
+    """
+
+    # preconditions
+    assert isinstance(candidate, str)
+
     return f"Please enter an integer score for {candidate} (0 is worst, 9 is best): "
     
 def get_candidate_average_votes(votes: list) -> float:
-    """gets the average votes for a candidate"""
+    """
+    Gets the average votes for a candidate.
+
+    Args:
+        votes(list): list of votes for a particular candidate
+
+    Preconditions:
+        - votes must be a list
+        - there must be at least one vote in the list
+        - the list must contain only integers
+
+    Returns:
+        Average vote for the candidate.
+    """
 
     # preconditions
     assert isinstance(votes, list)
@@ -29,7 +72,8 @@ def get_candidate_average_votes(votes: list) -> float:
     return sum(votes) / len(votes)
 
 def determine_winner(tally: dict) -> str:
-    """algorithm determines the winner
+    """
+    Algorithm that determines the winner.
 
     Those with the largest average votes wins. 
 
@@ -40,7 +84,17 @@ def determine_winner(tally: dict) -> str:
     * If William Gorithm has a lower score than any other candidate, and the
       other candidates are tied, then Meg A. Byte wins.
     * Oliver Seton only wins if he has a higher score than the other
-      candidates."""
+      candidates.
+
+    Args:
+        tally(dict): dictionary of each candidate with their average total vote
+
+    Preconditions:
+        - the tally must be a dictionary
+
+    Returns:
+        The election winner.
+    """
 
     # preconditions
     assert isinstance(tally, dict)
