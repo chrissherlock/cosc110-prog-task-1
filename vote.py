@@ -28,11 +28,17 @@ while True:
         
     voters.append(voterid)
 
-    for key in candidates:
-        vote_pref = input(prompt_text_for_candidate(key))
+    for candidate in candidates:
+        vote_pref = input(prompt_text_for_candidate(candidate))
 
         while not is_valid_vote(vote_pref):
             print("Please enter an integer score between 0 and 9")
-            vote_pref = input(prompt_text_for_candidate(key))
+            vote_pref = input(prompt_text_for_candidate(candidate))
 
-        candidates[key].append(vote_pref)
+        candidates[candidate].append(int(vote_pref))
+
+tally = {}
+
+for candidate in candidates:
+    tally[candidate] = get_candidate_average_votes(candidates[candidate])
+
