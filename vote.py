@@ -12,15 +12,21 @@ candidates = {
     "Oliver Seton": []
 }
 
-voterid = input("Please enter Voter ID: ")
+while True:
+    voterid = input("Please enter Voter ID: ")
 
-while voterid != "":
+    if voterid == '':
+        break
+
     if not is_valid_voterid(voterid):
         print("Invalid Voter ID\n")
+        continue;
 
     if has_already_voted(voters, voterid):
         print("You have already voted in this election. You cannot vote again.\n")
+        continue;
         
     voters.append(voterid)
 
-    voterid = input("Please enter Voter ID: ")
+    for key in candidates:
+        vote_pref = input(prompt_text_for_candidate(key))
