@@ -10,7 +10,7 @@ voterid = input("Please enter Voter ID: ")
 
 while voterid != "":
     if not is_valid_voterid(voterid):
-        print("Invalid Voter ID\n")
+        print("\nInvalid Voter ID\n")
 
     if has_already_voted(voters, voterid):
         print("\nYou have already voted in this election. You cannot vote again.\n")
