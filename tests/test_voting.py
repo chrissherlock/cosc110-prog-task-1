@@ -58,7 +58,7 @@ class TestVoting(unittest.TestCase):
             "Oliver Seton": 4.5
         }
 
-#        self.assertEqual("Oliver Seton", determine_winner(tally_clear_winner_oliver))
+        self.assertEqual("Oliver Seton", determine_winner(tally_clear_winner_oliver))
 
 if __name__ == '__main__':
     unittest.main()
