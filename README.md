@@ -1,19 +1,25 @@
 # UNE COSC110 Programming Task 1
 
-Voting in Codetown - programming task 1 for the COSC110 unit in UNE
+Voting in Codetown - programming task 1 for the COSC110 unit at UNE.
+
+Due date: Sunday, 7 December 2025, 11:59 PM
+
+## Author
+
+Chris Sherlock (student ID: 220306841)
 
 ## Installation
 
 Download the tar gzipped file, and extract it via:
 
 ```bash
-foo@bar:~$ tar zxvf cosc110-prog-task-1.tgz
+foo@bar:~$ tar zxvf pt1.1tgz
 ```
 
 ## Usage
 
 ```bash
-foo@bar:~$ ./vote.py
+foo@bar:~$ ./voting.py
 ```
 
 To test the program, run:
