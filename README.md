@@ -13,7 +13,7 @@ Chris Sherlock (student ID: 220306841)
 Download the tar gzipped file, and extract it via:
 
 ```bash
-foo@bar:~$ tar zxvf pt1.1tgz
+foo@bar:~$ tar zxvf pt1.tgz
 ```
 
 ## Usage
