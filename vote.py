@@ -42,3 +42,11 @@ tally = {}
 for candidate in candidates:
     tally[candidate] = get_candidate_average_votes(candidates[candidate])
 
+winner = determine_winner(tally)
+
+print("\nResults\n")
+
+for candidate in candidates:
+    print(f"{candidate}: {tally[candidate]}")
+
+print(f"{winner} wins with the average score {tally[winner]}!\n")
