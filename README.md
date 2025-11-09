@@ -2,11 +2,28 @@
 
 Voting in Codetown - programming task 1 for the COSC110 unit in UNE
 
+## Installation
+
+Download the tar gzipped file, and extract it via:
+
+```bash
+foo@bar:~$ tar zxvf cosc110-prog-task-1.tgz
+```
+
 ## Usage
 
 ```bash
-./vote.py
+foo@bar:~$ ./vote.py
 ```
+
+To test the program, run:
+
+```bash
+foo@bar:~$ ./test.sh
+```
+
+Use the --unittest parameter to run the unit tests, and --interacttest
+to run the interaction tests.
 
 ## Problem statement
 
