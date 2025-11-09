@@ -6,6 +6,12 @@ from src.voting import *
 # ask for a voter id until a blank is entered
 
 voters = []
+candidates = {
+    "William Gorithm": [],
+    "Meg A. Byte": [],
+    "Oliver Seton": []
+}
+
 voterid = input("Please enter Voter ID: ")
 
 while voterid != "":
