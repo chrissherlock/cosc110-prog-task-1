@@ -25,3 +25,23 @@ def get_candidate_average_votes(votes: list) -> float:
     assert all(isinstance(vote, int) for vote in votes)
 
     return sum(votes) / len(votes)
+
+def determine_winner(tally: dict) -> str:
+    """algorithm determines the winner
+
+    If there is a tie, the candidate listed first in the above order wins:
+
+    * William Gorithm wins whenever no candidate has a higher score than him
+      (i.e., even if others have the same score).
+    * If William Gorithm has a lower score than any other candidate, and the
+      other candidates are tied, then Meg A. Byte wins.
+    * Oliver Seton only wins if he has a higher score than the other
+      candidates."""
+
+    if tally["William Gorithm"] >= tally["Meg A. Byte"] and tally["William Gorithm"] >= tally["Oliver Seton"]:
+        return "William Gorithm"
+
+    if tally["Meg A. Byte"] >= tally["Oliver Seton"]:
+        return "Meg A. Byte"
+
+    return "Oliver Seton"

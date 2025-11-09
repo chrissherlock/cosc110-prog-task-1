@@ -25,5 +25,40 @@ class TestVoting(unittest.TestCase):
         candidate_votes = [1, 3, 5, 7]
         self.assertEqual(4, get_candidate_average_votes(candidate_votes))
 
+    def test_determine_winner(self):
+        """test that winner is determined correctly"""
+
+        tally_clear_winner = {
+            "William Gorithm": 1.5,
+            "Meg A. Byte": 5.5,
+            "Oliver Seton": 4.5
+        }
+
+        self.assertEqual("Meg A. Byte", determine_winner(tally_clear_winner), msg="Meg A. Byte should be the winner with 5.5")
+
+        tally_william_tied = {
+            "William Gorithm": 5.5,
+            "Meg A. Byte": 4.5,
+            "Oliver Seton": 5.5
+        }
+
+#        self.assertEqual("William Gorithm", determine_winner(tally_william_tied), msg="William Gorithm tied with Oliver Seton")
+
+        tally_meg_tied = {
+            "William Gorithm": 4.5,
+            "Meg A. Byte": 5.5,
+            "Oliver Seton": 5.5
+        }
+
+#        self.assertEqual("Meg A. Byte", determine_winner(tally_meg_tied), msg="William Gorith tied with Meg A. Byte")
+
+        tally_clear_winner_oliver = {
+            "William Gorithm": 1.5,
+            "Meg A. Byte": 1.5,
+            "Oliver Seton": 4.5
+        }
+
+#        self.assertEqual("Oliver Seton", determine_winner(tally_clear_winner_oliver))
+
 if __name__ == '__main__':
     unittest.main()
