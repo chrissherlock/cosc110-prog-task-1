@@ -30,6 +30,8 @@ def get_candidate_average_votes(votes: list) -> float:
 def determine_winner(tally: dict) -> str:
     """algorithm determines the winner
 
+    Those with the largest average votes wins. 
+
     If there is a tie, the candidate listed first in the above order wins:
 
     * William Gorithm wins whenever no candidate has a higher score than him
