@@ -85,10 +85,10 @@ If there is a tie, the candidate listed first in the above order wins:
 ## Approach to coding
 
 I am a fan of functional programming, which has informed how I write this
-Python code. This means I have hinted the types of the parameters and, as
-Python doesn't enforce parameter types I have an assert to enforce the type
-for me. I also use Python3's return type hints (a syntax I like as it
-reminds me of Haskell).
+Python code. This means I have hinted the types of the function parameters
+and, as Python doesn't enforce parameter types, I have an assert to enforce
+the type for me. I also use Python3's return type hints (a syntax I like as
+it reminds me of Haskell).
 
 My approach to coding is to divide up the program into "pure" functions as
 much as possible (i.e. no side effects and it returns a value). As this
@@ -103,6 +103,12 @@ correct values and if they don't then it gets discovered at runtime.
 By keeping the functions pure, this makes it easy for me to write unit tests
 to ensure they work correctly. I have used Python's builtin unittest module
 for the unit tests.
+
+When researching how to organise Python projects, I learned about how
+to setup Python modules so I have created a basic module under the src
+directory. A sticking point was how to test the module as it generated
+module errors, but after some more research I learned about relative
+imports which resolved the issue.
 
 Whilst figuring out how to code in Python (I'm a relative newbie) I
 discovered the joy of generator expressions and list comprehensions. I
