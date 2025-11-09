@@ -14,3 +14,14 @@ def has_already_voted(voters: list, voterid: int) -> bool:
 def prompt_text_for_candidate(candidate: str) -> str:
     return f"Please enter an integer score for {candidate} (0 is worst, 9 is best): "
     
+def get_candidate_average_votes(votes: list) -> float:
+    """gets the average votes for a candidate"""
+
+    # preconditions
+    assert len(votes) > 0
+
+    # all the votes must be an integer - here I use a generator expression to
+    # check the type of each element in the list
+    assert all(isinstance(vote, int) for vote in votes)
+
+    return sum(votes) / len(votes)

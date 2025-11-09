@@ -20,5 +20,10 @@ class TestVoting(unittest.TestCase):
         """test to ensure that candidate prompt is correct"""
         self.assertEqual("Please enter an integer score for William Gorithm (0 is worst, 9 is best): ", prompt_text_for_candidate("William Gorithm"))
 
+    def test_get_candidate_average_vote(self):
+        """test to get the candidates average vote"""
+        candidate_votes = [1, 3, 5, 7]
+        self.assertEqual(4, get_candidate_average_votes(candidate_votes))
+
 if __name__ == '__main__':
     unittest.main()
