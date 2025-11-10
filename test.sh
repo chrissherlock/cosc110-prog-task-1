@@ -5,9 +5,9 @@ unittest() {
 }
 
 interactiontest() {
-   ./vote.py < tests/interaction1
-   ./vote.py < tests/interaction2
-   ./vote.py < tests/interaction3
+   ./voting.py < tests/interaction1
+   ./voting.py < tests/interaction2
+   ./voting.py < tests/interaction3
 }
 
 if [[ "$#" -eq 0 ]]; then
