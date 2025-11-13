@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import sys
 
 def is_valid_voterid(voter_id: str) -> bool:
     """
@@ -71,8 +72,8 @@ def has_already_voted(voters: list, voterid: str) -> bool:
         if not is_valid_voterid(voterid):
             raise ValueError(f"voter id is not valid: {voterid}")
     except TypeError as e:
-        print(f"The type exception is: {str(e)}")
+        print(f"The type exception is: {str(e)}", file=sys.stderr)
     except ValueError as e:
-        print(f"The value exception is {str(e)}")
+        print(f"The value exception is {str(e)}", file=sys.stderr)
 
     return voterid in voters

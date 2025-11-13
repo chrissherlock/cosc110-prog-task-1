@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from .verify import *
+import sys
 
 
 def prompt_text_for_candidate(candidate: str) -> str:
@@ -22,7 +23,7 @@ def prompt_text_for_candidate(candidate: str) -> str:
         if not isinstance(candidate, str):
             raise TypeError("candidate is not a string")
     except TypeError as e:
-        print(f"The type exception is: {str(e)}")
+        print(f"The type exception is: {str(e)}", file=sys.stderr)
 
     return f"Please enter an integer score for {candidate} (0 is worst, 9 is best): "
 
@@ -49,7 +50,7 @@ def get_candidate_average_votes(votes: list) -> float:
         if not all(isinstance(vote, int) for vote in votes):
             raise TypeError("all the votes must be an integer")
     except TypeError as e:
-        print(f"The type exception is: {str(e)}")
+        print(f"The type exception is: {str(e)}", file=sys.stderr)
 
     if len(votes) == 0:
         return 0
@@ -87,7 +88,7 @@ def determine_winner(tally: dict) -> str:
         if not isinstance(tally, dict):
             raise TypeError("tally is not a dict")
     except TypeError as e:
-        print(f"The type exception is: {str(e)}")
+        print(f"The type exception is: {str(e)}", file=sys.stderr)
 
     if (
         tally["William Gorithm"] >= tally["Meg A. Byte"]
@@ -161,7 +162,7 @@ def tally_candidates(candidates: dict) -> dict:
         if not isinstance(candidates, dict):
             raise TypeError("candidates is not a dict")
     except TypeError as e:
-        print(f"The type exception is: {str(e)}")
+        print(f"The type exception is: {str(e)}", file=sys.stderr)
 
     tally = {}
 
@@ -186,7 +187,7 @@ def print_results(tally: dict):
         if not isinstance(tally, dict):
             raise TypeError("tally is not a dict")
     except TypeError as e:
-        print(f"The type exception is: {str(e)}")
+        print(f"The type exception is: {str(e)}", file=sys.stderr)
 
     winner = determine_winner(tally)
 
