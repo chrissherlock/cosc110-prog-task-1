@@ -36,6 +36,6 @@ while [[ "$#" -gt 0 ]]; do
         *)
 	    echo "Error: unknown command"
 	    echo "Usage: test.sh [--unittest] [--interactiontest]"
-	    shift
+	    exit 1
     esac
 done
