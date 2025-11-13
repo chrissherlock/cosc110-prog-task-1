@@ -10,10 +10,9 @@ def has_already_voted(voters: list, voterid: str) -> bool:
     Args:
         voters(list): list of voters who have already voted.
 
-    Preconditions:
-        - voters parameter is a list
-        - voterid parameter is a string
-        - the voterid is valid
+    Raises:
+        TypeError: if voters is not a list or the voterid is not a string
+        ValueError: if not a valid voterid
 
     Returns:
         True if the voter has already voted, False if the voter has
@@ -43,8 +42,8 @@ def prompt_text_for_candidate(candidate: str) -> str:
     Args:
         candidate(str): name of the candidate to be rated
 
-    Preconditions:
-        - candidate parameter is a string
+    Raises:
+        TypeError: if candidate parameter is a string
 
     Returns:
         Prompt string with the candidate name.
@@ -67,9 +66,8 @@ def get_candidate_average_votes(votes: list) -> float:
     Args:
         votes(list): list of votes for a particular candidate
 
-    Preconditions:
-        - votes must be a list
-        - the list must contain only integers
+    Raises:
+        TypeError: if votes is not a list, or the list contain non-integers
 
     Returns:
         Average vote for the candidate.
@@ -109,8 +107,8 @@ def determine_winner(tally: dict) -> str:
     Args:
         tally(dict): dictionary of each candidate with their average total vote
 
-    Preconditions:
-        - the tally must be a dictionary
+    Raises:
+        TypeError: if the tally is not a dict
 
     Returns:
         The election winner.
@@ -182,6 +180,9 @@ def tally_candidates(candidates: dict) -> dict:
     Args:
         candidates(dict): the candidates and their list of votes
 
+    Raises:
+        TypeError: if candidates is not a dict
+
     Returns:
         A tally of all the candidates average votes.
 
@@ -209,6 +210,8 @@ def print_results(tally: dict):
     Args:
         tally(dict): each of the candidates average votes.
 
+    Raises:
+        TypeError: if tally is not a dict
     """
     # preconditions
     try:

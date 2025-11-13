@@ -8,8 +8,8 @@ def is_valid_voterid(voter_id: str) -> bool:
     Args:
         voter_id(str): The voter ID to be validated.
 
-    Preconditions:
-        - voter_id parameter is a string
+    Raises:
+        ValueError: if voter_id is not an integer
 
     Returns:
         True if the voter id is valid, False if the voter id is invalid
@@ -31,8 +31,8 @@ def is_valid_vote(vote: str) -> bool:
     Args:
         vote(str): vote preference value for the candidate
 
-    Preconditions:
-        - vote parameter is a string
+    Raises:
+        ValueError: if vote parameter is not a number
 
     Returns:
         True if the vote pref is valid, False if the vote pref is invalid
