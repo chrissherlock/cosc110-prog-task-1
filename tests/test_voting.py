@@ -60,5 +60,12 @@ class TestVoting(unittest.TestCase):
 
         self.assertEqual("Oliver Seton", determine_winner(tally_clear_winner_oliver))
 
+        tally_all_stinkers = {
+            "William Gorithm": 0,
+            "Meg A. Byte": 0,
+            "Oliver Seton": 0
+        }
+
+        self.assertEqual("William Gorithm", determine_winner(tally_all_stinkers), msg="William Gorith should be the winner when everyone gets 0 votes")
 if __name__ == '__main__':
     unittest.main()
