@@ -12,7 +12,7 @@ def prompt_text_for_candidate(candidate: str) -> str:
         candidate(str): name of the candidate to be rated
 
     Raises:
-        TypeError: if candidate parameter is a string
+        TypeError: if candidate parameter is not a string
 
     Returns:
         Prompt string with the candidate name.
