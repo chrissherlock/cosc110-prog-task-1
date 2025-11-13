@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 import unittest
-from src.verify import is_valid_voterid, is_valid_vote
+from src.verify import is_valid_voterid, is_valid_vote, has_already_voted
+
 
 class TestVerifications(unittest.TestCase):
     """Test suite for verifications module"""
@@ -45,5 +46,6 @@ class TestVerifications(unittest.TestCase):
         self.assertTrue(has_already_voted(voters, "1234567"))
         self.assertFalse(has_already_voted(voters, "7654321"))
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     unittest.main()
