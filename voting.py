@@ -3,47 +3,53 @@
 from src.verify import *
 from src.voting import *
 
-voters = []
-candidates = {
-    "William Gorithm": [],
-    "Meg A. Byte": [],
-    "Oliver Seton": []
-}
+def get_votes() -> dict:
+    """Ask for a voter id until a blank is entered."""
+    voters = []
 
-# ask for a voter id until a blank is entered
+    candidates = {
+        "William Gorithm": [],
+        "Meg A. Byte": [],
+        "Oliver Seton": []
+    }
 
-while True:
-    voterid = input("Please enter Voter ID: ")
+    while True:
+        voterid = input("Please enter Voter ID: ")
 
-    if voterid == '':
-        break
+        if voterid == '':
+            break
 
-    if not is_valid_voterid(voterid):
-        print("Invalid Voter ID\n")
-        continue;
+        if not is_valid_voterid(voterid):
+            print("Invalid Voter ID\n")
+            continue;
 
-    if has_already_voted(voters, voterid):
-        print("You have already voted in this election. You cannot vote again.\n")
-        continue;
-        
-    voters.append(voterid)
+        if has_already_voted(voters, voterid):
+            print("You have already voted in this election. You cannot vote again.\n")
+            continue;
+            
+        voters.append(voterid)
 
-    for candidate in candidates:
-        vote_pref = input(prompt_text_for_candidate(candidate))
-
-        while not is_valid_vote(vote_pref):
-            print("Please enter an integer score between 0 and 9")
+        for candidate in candidates:
             vote_pref = input(prompt_text_for_candidate(candidate))
 
-        candidates[candidate].append(int(vote_pref))
+            while not is_valid_vote(vote_pref):
+                print("Please enter an integer score between 0 and 9")
+                vote_pref = input(prompt_text_for_candidate(candidate))
 
-# get the tally of all the votes for the candidates and determine the winner
+            candidates[candidate].append(int(vote_pref))
 
-tally = {}
+    return candidates
 
-for candidate in candidates:
-    tally[candidate] = get_candidate_average_votes(candidates[candidate])
+def tally_candidates(candidates: dict) -> dict:
+    """Get the tally of all the votes for the candidates and determine the winner"""
+    tally = {}
 
+    for candidate in candidates:
+        tally[candidate] = get_candidate_average_votes(candidates[candidate])
+
+    return tally
+
+tally = tally_candidates(get_votes())
 winner = determine_winner(tally)
 
 # output the results of the election, with the average votes for each candidate,
@@ -51,7 +57,7 @@ winner = determine_winner(tally)
 
 print("\nResults\n")
 
-for candidate in candidates:
+for candidate in tally:
     print(f"{candidate}: {tally[candidate]}")
 
 print(f"{winner} wins with the average score {tally[winner]}!\n")
