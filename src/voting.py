@@ -152,3 +152,14 @@ def tally_candidates(candidates: dict) -> dict:
         tally[candidate] = get_candidate_average_votes(candidates[candidate])
 
     return tally
+
+def print_results(tally: dict):
+    """Output the results of the election, with the average votes for each candidate."""
+    winner = determine_winner(tally)
+
+    print("\nResults\n")
+
+    for candidate in tally:
+        print(f"{candidate}: {tally[candidate]}")
+
+    print(f"{winner} wins with the average score {tally[winner]}!\n")
