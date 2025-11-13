@@ -108,7 +108,13 @@ def determine_winner(tally: dict) -> str:
     return "Oliver Seton"
 
 def get_votes() -> dict:
-    """Ask for a voter id until a blank is entered."""
+    """
+    Ask for a voter id until a blank is entered.
+
+    Returns:
+        A dictionary of candidates and their list of votes.
+    """
+
     voters = []
 
     candidates = {
@@ -145,7 +151,16 @@ def get_votes() -> dict:
     return candidates
 
 def tally_candidates(candidates: dict) -> dict:
-    """Get the tally of all the votes for the candidates and determine the winner"""
+    """
+    Get the tally of all the votes for the candidates and determine the winner.
+
+    Args:    
+        candidates(dict): the candidates and their list of votes
+        
+    Returns:
+        A tally of all the candidates average votes.
+
+    """
     tally = {}
 
     for candidate in candidates:
@@ -154,7 +169,13 @@ def tally_candidates(candidates: dict) -> dict:
     return tally
 
 def print_results(tally: dict):
-    """Output the results of the election, with the average votes for each candidate."""
+    """
+    Output the results of the election, with the average votes for each candidate.
+
+    Args:
+        tally(dict): each of the candidates average votes.
+
+    """
     winner = determine_winner(tally)
 
     print("\nResults\n")

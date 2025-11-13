@@ -15,9 +15,12 @@ def is_valid_voterid(voter_id: str) -> bool:
     """
 
     # preconditions
-    assert(isinstance(voter_id, str))
-
-    return voter_id.isdigit() and int(voter_id) >= 1000000 and int(voter_id) <= 9999999
+    try:
+        voter_id_int = int(voter_id)
+    except ValueError:
+        return False;
+    else:
+        return voter_id_int >= 1000000 and voter_id_int <= 9999999
 
 def is_valid_vote(vote: str) -> bool:
     """
@@ -34,6 +37,9 @@ def is_valid_vote(vote: str) -> bool:
     """
 
     # preconditions
-    assert(isinstance(vote, str))
-
-    return vote.isdigit() and int(vote) >= 0 and int(vote) <= 9
+    try:
+        vote_int = int(vote)
+    except ValueError:
+        return False;
+    else:
+        return vote_int >= 0 and vote_int <= 9
