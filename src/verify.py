@@ -2,6 +2,7 @@
 
 import sys
 
+
 def is_valid_voterid(voter_id: str) -> bool:
     """
     Checks the voter id is 7 numeric digits.
@@ -46,6 +47,7 @@ def is_valid_vote(vote: str) -> bool:
         return False
     else:
         return vote_int >= 0 and vote_int <= 9
+
 
 def has_already_voted(voters: list, voterid: str) -> bool:
     """

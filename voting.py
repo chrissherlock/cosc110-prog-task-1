@@ -2,6 +2,7 @@
 
 from src.voting import *
 
+
 def main():
     """
     Voting program for COSC110
@@ -29,6 +30,6 @@ def main():
 
     print_results(tally_candidates(get_votes()))
 
+
 if __name__ == "__main__":
     main()
-
