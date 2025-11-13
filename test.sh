@@ -23,12 +23,19 @@ while [[ "$#" -gt 0 ]]; do
 	    shift
 	    ;;
 
-	--interactiontest)
+        --interactiontest)
 	    interactiontest
 	    shift
 	    ;;
 
-	-h|--help)
-	    echo "Usage: vote.sh [--unittest] [--interactiontest]"
+        -h|--help)
+	    echo "Usage: test.sh [--unittest] [--interactiontest]"
+	    shift
+	    ;;
+
+        *)
+	    echo "Error: unknown command"
+	    echo "Usage: test.sh [--unittest] [--interactiontest]"
+	    shift
     esac
 done
