@@ -20,9 +20,17 @@ def has_already_voted(voters: list, voterid: str) -> bool:
     """
 
     # preconditions
-    assert isinstance(voters, list)
-    assert isinstance(voterid, str)
-    assert is_valid_voterid(voterid), f"voter id is not valid: {voterid}"
+    try:
+        if not isinstance(voters, list):
+            raise TypeError("voters parameter is not a list")
+        if not isinstance(voterid, str):
+            raise TypeError("voterid parameter is not a list")
+        if not is_valid_voterid(voterid):
+            raise ValueError(f"voter id is not valid: {voterid}")
+    except TypeError as e:
+        print(f"The type exception is: {str(e)}")
+    except ValueError as e:
+        print(f"The value exception is {str(e)}")
 
     return voterid in voters
 
@@ -41,7 +49,11 @@ def prompt_text_for_candidate(candidate: str) -> str:
     """
 
     # preconditions
-    assert isinstance(candidate, str)
+    try:
+        if not isinstance(candidate, str):
+            raise TypeError("candidate is not a string")
+    except TypeError as e:
+        print(f"The type exception is: {str(e)}")
 
     return f"Please enter an integer score for {candidate} (0 is worst, 9 is best): "
     
@@ -54,7 +66,6 @@ def get_candidate_average_votes(votes: list) -> float:
 
     Preconditions:
         - votes must be a list
-        - there must be at least one vote in the list
         - the list must contain only integers
 
     Returns:
@@ -62,12 +73,17 @@ def get_candidate_average_votes(votes: list) -> float:
     """
 
     # preconditions
-    assert isinstance(votes, list)
-    assert len(votes) > 0
+    try:
+        if not isinstance(votes, list):
+            raise TypeError("votes is not a list")
+        # use a generator expression to check the type of each element in the list
+        if not all(isinstance(vote, int) for vote in votes):
+            raise TypeError("all the votes must be an integer")
+    except TypeError as e:
+        print(f"The type exception is: {str(e)}")
 
-    # all the votes must be an integer - here I use a generator expression to
-    # check the type of each element in the list
-    assert all(isinstance(vote, int) for vote in votes)
+    if len(votes) == 0:
+        return 0
 
     return sum(votes) / len(votes)
 
@@ -97,7 +113,11 @@ def determine_winner(tally: dict) -> str:
     """
 
     # preconditions
-    assert isinstance(tally, dict)
+    try:
+        if not isinstance(tally, dict):
+            raise TypeError("tally is not a dict")
+    except TypeError as e:
+        print(f"The type exception is: {str(e)}")
 
     if tally["William Gorithm"] >= tally["Meg A. Byte"] and tally["William Gorithm"] >= tally["Oliver Seton"]:
         return "William Gorithm"
@@ -161,6 +181,14 @@ def tally_candidates(candidates: dict) -> dict:
         A tally of all the candidates average votes.
 
     """
+
+    # preconditions
+    try:
+        if not isinstance(candidates, dict):
+            raise TypeError("candidates is not a dict")
+    except TypeError as e:
+        print(f"The type exception is: {str(e)}")
+
     tally = {}
 
     for candidate in candidates:
@@ -176,6 +204,13 @@ def print_results(tally: dict):
         tally(dict): each of the candidates average votes.
 
     """
+    # preconditions
+    try:
+        if not isinstance(tally, dict):
+            raise TypeError("tally is not a dict")
+    except TypeError as e:
+        print(f"The type exception is: {str(e)}")
+
     winner = determine_winner(tally)
 
     print("\nResults\n")
