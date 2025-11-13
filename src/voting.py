@@ -34,6 +34,36 @@ def get_candidate_average_votes(votes: list) -> float:
     return sum(votes) / len(votes)
 
 
+def tally_candidates(candidates: dict) -> dict:
+    """
+    Get the tally of all the votes for the candidates and determine the winner.
+
+    Args:
+        candidates(dict): the candidates and their list of votes
+
+    Raises:
+        TypeError: if candidates is not a dict
+
+    Returns:
+        A tally of all the candidates average votes.
+
+    """
+
+    # preconditions
+    try:
+        if not isinstance(candidates, dict):
+            raise TypeError("candidates is not a dict")
+    except TypeError as e:
+        print(f"The type exception is: {str(e)}", file=sys.stderr)
+
+    tally = {}
+
+    for candidate in candidates:
+        tally[candidate] = get_candidate_average_votes(candidates[candidate])
+
+    return tally
+
+
 def determine_winner(tally: dict) -> str:
     """
     Algorithm that determines the winner.
@@ -76,33 +106,3 @@ def determine_winner(tally: dict) -> str:
         return "Meg A. Byte"
 
     return "Oliver Seton"
-
-
-def tally_candidates(candidates: dict) -> dict:
-    """
-    Get the tally of all the votes for the candidates and determine the winner.
-
-    Args:
-        candidates(dict): the candidates and their list of votes
-
-    Raises:
-        TypeError: if candidates is not a dict
-
-    Returns:
-        A tally of all the candidates average votes.
-
-    """
-
-    # preconditions
-    try:
-        if not isinstance(candidates, dict):
-            raise TypeError("candidates is not a dict")
-    except TypeError as e:
-        print(f"The type exception is: {str(e)}", file=sys.stderr)
-
-    tally = {}
-
-    for candidate in candidates:
-        tally[candidate] = get_candidate_average_votes(candidates[candidate])
-
-    return tally
