@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 def is_valid_voterid(voter_id: str) -> bool:
     """
     Checks the voter id is 7 numeric digits.
@@ -18,9 +19,10 @@ def is_valid_voterid(voter_id: str) -> bool:
     try:
         voter_id_int = int(voter_id)
     except ValueError:
-        return False;
+        return False
     else:
         return voter_id_int >= 1000000 and voter_id_int <= 9999999
+
 
 def is_valid_vote(vote: str) -> bool:
     """
@@ -40,6 +42,6 @@ def is_valid_vote(vote: str) -> bool:
     try:
         vote_int = int(vote)
     except ValueError:
-        return False;
+        return False
     else:
         return vote_int >= 0 and vote_int <= 9

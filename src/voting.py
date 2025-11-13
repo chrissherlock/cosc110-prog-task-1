@@ -2,6 +2,7 @@
 
 from .verify import *
 
+
 def has_already_voted(voters: list, voterid: str) -> bool:
     """
     Checks that the value entered is an integer.
@@ -34,6 +35,7 @@ def has_already_voted(voters: list, voterid: str) -> bool:
 
     return voterid in voters
 
+
 def prompt_text_for_candidate(candidate: str) -> str:
     """
     Generates the prompt to rate a candidate.
@@ -56,7 +58,8 @@ def prompt_text_for_candidate(candidate: str) -> str:
         print(f"The type exception is: {str(e)}")
 
     return f"Please enter an integer score for {candidate} (0 is worst, 9 is best): "
-    
+
+
 def get_candidate_average_votes(votes: list) -> float:
     """
     Gets the average votes for a candidate.
@@ -87,11 +90,12 @@ def get_candidate_average_votes(votes: list) -> float:
 
     return sum(votes) / len(votes)
 
+
 def determine_winner(tally: dict) -> str:
     """
     Algorithm that determines the winner.
 
-    Those with the largest average votes wins. 
+    Those with the largest average votes wins.
 
     If there is a tie, the candidate listed first in the above order wins:
 
@@ -119,13 +123,17 @@ def determine_winner(tally: dict) -> str:
     except TypeError as e:
         print(f"The type exception is: {str(e)}")
 
-    if tally["William Gorithm"] >= tally["Meg A. Byte"] and tally["William Gorithm"] >= tally["Oliver Seton"]:
+    if (
+        tally["William Gorithm"] >= tally["Meg A. Byte"]
+        and tally["William Gorithm"] >= tally["Oliver Seton"]
+    ):
         return "William Gorithm"
 
     if tally["Meg A. Byte"] >= tally["Oliver Seton"]:
         return "Meg A. Byte"
 
     return "Oliver Seton"
+
 
 def get_votes() -> dict:
     """
@@ -137,26 +145,22 @@ def get_votes() -> dict:
 
     voters = []
 
-    candidates = {
-        "William Gorithm": [],
-        "Meg A. Byte": [],
-        "Oliver Seton": []
-    }
+    candidates = {"William Gorithm": [], "Meg A. Byte": [], "Oliver Seton": []}
 
     while True:
         voterid = input("Please enter Voter ID: ")
 
-        if voterid == '':
+        if voterid == "":
             break
 
         if not is_valid_voterid(voterid):
             print("Invalid Voter ID\n")
-            continue;
+            continue
 
         if has_already_voted(voters, voterid):
             print("You have already voted in this election. You cannot vote again.\n")
-            continue;
-            
+            continue
+
         voters.append(voterid)
 
         for candidate in candidates:
@@ -170,13 +174,14 @@ def get_votes() -> dict:
 
     return candidates
 
+
 def tally_candidates(candidates: dict) -> dict:
     """
     Get the tally of all the votes for the candidates and determine the winner.
 
-    Args:    
+    Args:
         candidates(dict): the candidates and their list of votes
-        
+
     Returns:
         A tally of all the candidates average votes.
 
@@ -195,6 +200,7 @@ def tally_candidates(candidates: dict) -> dict:
         tally[candidate] = get_candidate_average_votes(candidates[candidate])
 
     return tally
+
 
 def print_results(tally: dict):
     """
