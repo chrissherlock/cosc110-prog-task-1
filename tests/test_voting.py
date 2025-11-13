@@ -3,6 +3,7 @@
 import unittest
 
 from src.voting import *
+from src.voting_io import prompt_text_for_candidate
 
 
 class TestVoting(unittest.TestCase):

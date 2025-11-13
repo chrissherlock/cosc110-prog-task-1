@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from src.voting import *
+from src.voting_io import *
 
 
 def main():
