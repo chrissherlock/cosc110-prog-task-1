@@ -3,38 +3,6 @@
 from .verify import *
 
 
-def has_already_voted(voters: list, voterid: str) -> bool:
-    """
-    Checks that the value entered is an integer.
-
-    Args:
-        voters(list): list of voters who have already voted.
-
-    Raises:
-        TypeError: if voters is not a list or the voterid is not a string
-        ValueError: if not a valid voterid
-
-    Returns:
-        True if the voter has already voted, False if the voter has
-        not voted.
-    """
-
-    # preconditions
-    try:
-        if not isinstance(voters, list):
-            raise TypeError("voters parameter is not a list")
-        if not isinstance(voterid, str):
-            raise TypeError("voterid parameter is not a list")
-        if not is_valid_voterid(voterid):
-            raise ValueError(f"voter id is not valid: {voterid}")
-    except TypeError as e:
-        print(f"The type exception is: {str(e)}")
-    except ValueError as e:
-        print(f"The value exception is {str(e)}")
-
-    return voterid in voters
-
-
 def prompt_text_for_candidate(candidate: str) -> str:
     """
     Generates the prompt to rate a candidate.
