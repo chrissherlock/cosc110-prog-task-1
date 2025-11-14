@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from .verify import *
+from .validate import *
 from .voting import *
 
 

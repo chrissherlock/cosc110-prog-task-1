@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import unittest
-from src.verify import is_valid_voterid, is_valid_vote, has_already_voted
+from src.validate import is_valid_voterid, is_valid_vote, has_already_voted
 
 
 class TestVerifications(unittest.TestCase):
