@@ -85,11 +85,11 @@ def print_results(tally: dict):
     except TypeError as e:
         print(f"The type exception is: {str(e)}", file=sys.stderr)
 
-    winner = determine_winner(tally)
-
     print("\nResults\n")
 
     for candidate in tally:
         print(f"{candidate}: {tally[candidate]}")
+
+    winner = determine_winner(tally)
 
     print(f"{winner} wins with the average score {tally[winner]}!\n")
