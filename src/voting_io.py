@@ -38,7 +38,11 @@ def get_votes() -> dict[str, list]:
 
     voters: list[str] = []
 
-    candidates: dict[str, list] = {"William Gorithm": [], "Meg A. Byte": [], "Oliver Seton": []}
+    candidates: dict[str, list] = {
+        "William Gorithm": [],
+        "Meg A. Byte": [],
+        "Oliver Seton": [],
+    }
 
     while True:
         voterid = input("Please enter Voter ID: ")
