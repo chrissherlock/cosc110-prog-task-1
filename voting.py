@@ -20,6 +20,13 @@ def main() -> None:
     directory. A sticking point was how to test the module as it generated
     module errors, but after some more research I learned about relative
     imports which resolved the issue.
+
+    Whilst figuring out how to code in Python (I'm a relative newbie) I
+    discovered the joy of generator expressions and list comprehensions. I
+    have only used a generator expression, as whilst I initially used a
+    list comprehension as a filter in the function that determines the
+    winner, I realised that I was overcomplicating things so, sadly, I
+    couldn't show off this feature.
     """
 
     print_results(tally_candidates(get_votes()))
