@@ -20,7 +20,7 @@ def get_candidate_average_votes(votes: list) -> float:
 
     # preconditions
     try:
-        if not isinstance(votes, list[int]):
+        if not isinstance(votes, list):
             raise TypeError("votes is not a list")
         # use a generator expression to check the type of each element in the list
         if not all(isinstance(vote, int) for vote in votes):
@@ -34,7 +34,7 @@ def get_candidate_average_votes(votes: list) -> float:
     return sum(votes) / len(votes)
 
 
-def tally_candidates(candidates: dict[str, list]) -> dict:
+def tally_candidates(candidates: dict[str, list]) -> dict[str, int]:
     """
     Get the tally of all the votes for the candidates and determine the winner.
 
@@ -51,7 +51,7 @@ def tally_candidates(candidates: dict[str, list]) -> dict:
 
     # preconditions
     try:
-        if not isinstance(candidates, dict[str, list[int]]):
+        if not isinstance(candidates, dict):
             raise TypeError("candidates is not a dict")
     except TypeError as e:
         print(f"The type exception is: {str(e)}", file=sys.stderr)

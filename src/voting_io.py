@@ -72,7 +72,7 @@ def get_votes() -> dict[str, list]:
     return candidates
 
 
-def print_results(tally: dict) -> None:
+def print_results(tally: dict[str, int]) -> None:
     """
     Output the results of the election, with the average votes for each candidate.
 
