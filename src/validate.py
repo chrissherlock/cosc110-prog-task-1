@@ -49,7 +49,7 @@ def is_valid_vote(vote: str) -> bool:
         return vote_int >= 0 and vote_int <= 9
 
 
-def has_already_voted(voters: list, voterid: str) -> bool:
+def has_already_voted(voters: list[str], voterid: str) -> bool:
     """
     Checks if the voter has already voted.
 
@@ -67,7 +67,7 @@ def has_already_voted(voters: list, voterid: str) -> bool:
 
     # preconditions
     try:
-        if not isinstance(voters, list):
+        if not isinstance(voters[str], list):
             raise TypeError("voters parameter is not a list")
         if not isinstance(voterid, str):
             raise TypeError("voterid parameter is not a list")

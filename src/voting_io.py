@@ -28,7 +28,7 @@ def prompt_text_for_candidate(candidate: str) -> str:
     return f"Please enter an integer score for {candidate} (0 is worst, 9 is best): "
 
 
-def get_votes() -> dict:
+def get_votes() -> dict[str, list]:
     """
     Ask for a voter id until a blank is entered.
 
@@ -36,9 +36,9 @@ def get_votes() -> dict:
         A dictionary of candidates and their list of votes.
     """
 
-    voters = []
+    voters: list[str] = []
 
-    candidates = {"William Gorithm": [], "Meg A. Byte": [], "Oliver Seton": []}
+    candidates: dict[str, list] = {"William Gorithm": [], "Meg A. Byte": [], "Oliver Seton": []}
 
     while True:
         voterid = input("Please enter Voter ID: ")
@@ -68,7 +68,7 @@ def get_votes() -> dict:
     return candidates
 
 
-def print_results(tally: dict):
+def print_results(tally: dict) -> None:
     """
     Output the results of the election, with the average votes for each candidate.
 
