@@ -51,7 +51,6 @@ def has_already_voted(voters: list[str], voterid: str) -> bool:
         voters(list): list of voters who have already voted.
 
     Raises:
-        TypeError: if voters is not a list or the voterid is not a string
         ValueError: if not a valid voterid
 
     Returns:
