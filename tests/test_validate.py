@@ -4,7 +4,7 @@ import unittest
 from src.validate import is_valid_voterid, is_valid_vote, has_already_voted
 
 
-class TestVerifications(unittest.TestCase):
+class TestValidations(unittest.TestCase):
     """Test suite for verifications module"""
 
     def test_is_valid_voterid(self):
