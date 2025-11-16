@@ -19,8 +19,6 @@ def get_candidate_average_votes(votes: list) -> float:
     """
 
     # preconditions
-    if not isinstance(votes, list):
-        raise TypeError("votes is not a list")
     # use a generator expression to check the type of each element in the list
     if not all(isinstance(vote, int) for vote in votes):
         raise TypeError("all the votes must be an integer")
@@ -45,10 +43,6 @@ def tally_candidates(candidates: dict[str, list]) -> dict[str, int]:
         A tally of all the candidates average votes.
 
     """
-
-    # preconditions
-    if not isinstance(candidates, dict):
-        raise TypeError("candidates is not a dict")
 
     tally: dict[str, int] = {}
 
@@ -82,10 +76,6 @@ def determine_winner(tally: dict[str, int]) -> str:
     Returns:
         The election winner.
     """
-
-    # preconditions
-    if not isinstance(tally, dict):
-        raise TypeError("tally is not a dict")
 
     if (
         tally["William Gorithm"] >= tally["Meg A. Byte"]
