@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from .validate import *
-import sys
 
 
 def get_candidate_average_votes(votes: list) -> float:
