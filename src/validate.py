@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 
-import sys
-
-
 def is_valid_voterid(voter_id: str) -> bool:
     """
     Checks the voter id is 7 numeric digits.
