@@ -19,14 +19,11 @@ def get_candidate_average_votes(votes: list) -> float:
     """
 
     # preconditions
-    try:
-        if not isinstance(votes, list):
-            raise TypeError("votes is not a list")
-        # use a generator expression to check the type of each element in the list
-        if not all(isinstance(vote, int) for vote in votes):
-            raise TypeError("all the votes must be an integer")
-    except TypeError as e:
-        print(f"The type exception is: {str(e)}", file=sys.stderr)
+    if not isinstance(votes, list):
+        raise TypeError("votes is not a list")
+    # use a generator expression to check the type of each element in the list
+    if not all(isinstance(vote, int) for vote in votes):
+        raise TypeError("all the votes must be an integer")
 
     if len(votes) == 0:
         return 0
@@ -50,11 +47,8 @@ def tally_candidates(candidates: dict[str, list]) -> dict[str, int]:
     """
 
     # preconditions
-    try:
-        if not isinstance(candidates, dict):
-            raise TypeError("candidates is not a dict")
-    except TypeError as e:
-        print(f"The type exception is: {str(e)}", file=sys.stderr)
+    if not isinstance(candidates, dict):
+        raise TypeError("candidates is not a dict")
 
     tally: dict[str, int] = {}
 
@@ -90,11 +84,8 @@ def determine_winner(tally: dict[str, int]) -> str:
     """
 
     # preconditions
-    try:
-        if not isinstance(tally, dict):
-            raise TypeError("tally is not a dict")
-    except TypeError as e:
-        print(f"The type exception is: {str(e)}", file=sys.stderr)
+    if not isinstance(tally, dict):
+        raise TypeError("tally is not a dict")
 
     if (
         tally["William Gorithm"] >= tally["Meg A. Byte"]

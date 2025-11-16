@@ -19,11 +19,8 @@ def prompt_text_for_candidate(candidate: str) -> str:
     """
 
     # preconditions
-    try:
-        if not isinstance(candidate, str):
-            raise TypeError("candidate is not a string")
-    except TypeError as e:
-        print(f"The type exception is: {str(e)}", file=sys.stderr)
+    if not isinstance(candidate, str):
+        raise TypeError("candidate is not a string")
 
     return f"Please enter an integer score for {candidate} (0 is worst, 9 is best): "
 
@@ -83,11 +80,8 @@ def print_results(tally: dict[str, int]) -> None:
         TypeError: if tally is not a dict
     """
     # preconditions
-    try:
-        if not isinstance(tally, dict):
-            raise TypeError("tally is not a dict")
-    except TypeError as e:
-        print(f"The type exception is: {str(e)}", file=sys.stderr)
+    if not isinstance(tally, dict):
+        raise TypeError("tally is not a dict")
 
     print("\nResults\n")
 
