@@ -60,16 +60,7 @@ def has_already_voted(voters: list[str], voterid: str) -> bool:
     """
 
     # preconditions
-    try:
-        if not isinstance(voters[str], list):
-            raise TypeError("voters parameter is not a list")
-        if not isinstance(voterid, str):
-            raise TypeError("voterid parameter is not a list")
-        if not is_valid_voterid(voterid):
-            raise ValueError(f"voter id is not valid: {voterid}")
-    except TypeError as e:
-        print(f"The type exception is: {str(e)}", file=sys.stderr)
-    except ValueError as e:
-        print(f"The value exception is {str(e)}", file=sys.stderr)
+    if not is_valid_voterid(voterid):
+        raise ValueError(f"voter id is not valid: {voterid}")
 
     return voterid in voters

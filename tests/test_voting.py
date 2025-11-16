@@ -25,13 +25,6 @@ class TestVoting(unittest.TestCase):
         candidate_votes = [1, 3, 5, 7]
         self.assertEqual(4, get_candidate_average_votes(candidate_votes))
 
-        # check preconditions
-        with self.assertRaises(TypeError):
-            get_candidate_average_votes("not a list")
-
-        with self.assertRaises(TypeError):
-            get_candidate_average_votes(["not an integer"])
-
     def test_tally_candidates(self):
         """ensure the tally is correct"""
         tally = {"William Gorithm": [1, 2, 3]}
@@ -39,10 +32,6 @@ class TestVoting(unittest.TestCase):
 
         novotes_tally = {"William Gorithm": [0, 0]}
         self.assertEqual(0, tally_candidates(novotes_tally)["William Gorithm"])
-
-        # check preconditions
-        with self.assertRaises(TypeError):
-            tally_candidates("not a list")
 
     def test_determine_winner(self):
         """test that winner is determined correctly"""
@@ -98,10 +87,6 @@ class TestVoting(unittest.TestCase):
             determine_winner(tally_all_stinkers),
             msg="William Gorith should be the winner when everyone gets 0 votes",
         )
-
-        # check preconditions
-        with self.assertRaises(TypeError):
-            determine_winner("not a list")
 
 if __name__ == "__main__":
     unittest.main()

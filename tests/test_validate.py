@@ -46,6 +46,5 @@ class TestValidations(unittest.TestCase):
         self.assertTrue(has_already_voted(voters, "1234567"))
         self.assertFalse(has_already_voted(voters, "7654321"))
 
-
 if __name__ == "__main__":
     unittest.main()
