@@ -12,7 +12,7 @@ def get_candidate_average_votes(votes: list) -> float:
         votes(list): list of votes for a particular candidate
 
     Raises:
-        TypeError: if votes is not a list, or the list contain non-integers
+        TypeError: if the list contain non-integers
 
     Returns:
         Average vote for the candidate.
@@ -35,9 +35,6 @@ def tally_candidates(candidates: dict[str, list]) -> dict[str, int]:
 
     Args:
         candidates(dict): the candidates and their list of votes
-
-    Raises:
-        TypeError: if candidates is not a dict
 
     Returns:
         A tally of all the candidates average votes.
@@ -69,9 +66,6 @@ def determine_winner(tally: dict[str, int]) -> str:
 
     Args:
         tally(dict): dictionary of each candidate with their average total vote
-
-    Raises:
-        TypeError: if the tally is not a dict
 
     Returns:
         The election winner.

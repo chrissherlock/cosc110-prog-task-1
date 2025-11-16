@@ -75,13 +75,7 @@ def print_results(tally: dict[str, int]) -> None:
 
     Args:
         tally(dict): each of the candidates average votes.
-
-    Raises:
-        TypeError: if tally is not a dict
     """
-    # preconditions
-    if not isinstance(tally, dict):
-        raise TypeError("tally is not a dict")
 
     print("\nResults\n")
 
