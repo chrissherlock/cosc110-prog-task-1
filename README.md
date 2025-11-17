@@ -22,15 +22,6 @@ foo@bar:~$ tar zxvf pt1.tgz
 foo@bar:~/cosc110-prog-task-1$ ./voting.py
 ```
 
-To test the program, run:
-
-```bash
-foo@bar:~/cosc110-prog-task-1$ ./test.sh
-```
-
-Use the ```--unittest``` parameter to run the unit tests, and ```--interactiontest```
-to run the interaction tests.
-
 ## Problem statement
 
 It's election year in Codetown, and for the first time ever, the local
