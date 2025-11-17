@@ -196,7 +196,7 @@ def is_valid_vote(vote: str) -> bool:
     except ValueError:
         return False
     else:
-        return vote_int >= 0 and vote_int <= 9
+        return len(vote) == 1 and vote_int >= 0 and vote_int <= 9
 
 
 def has_already_voted(voters: list[str], voterid: str) -> bool:
@@ -215,7 +215,7 @@ def has_already_voted(voters: list[str], voterid: str) -> bool:
     """
 
     # preconditions
-    if not is_valid_voterid(voterid):
+    if not is_valid_voterid(str(voterid)):
         raise ValueError(f"voter id is not valid: {voterid}")
 
     return voterid in voters
@@ -277,7 +277,7 @@ def get_votes() -> dict[str, list]:
         for candidate in candidates:
             vote_pref = input(prompt_text_for_candidate(candidate))
 
-            while not is_valid_vote(vote_pref):
+            while not is_valid_vote(str(vote_pref)):
                 print("Please enter an integer score between 0 and 9")
                 vote_pref = input(prompt_text_for_candidate(candidate))
 
