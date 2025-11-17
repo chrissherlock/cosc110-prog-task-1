@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 def main() -> None:
     """
     Voting program for COSC110
@@ -154,12 +155,6 @@ def has_already_voted(voters: list[str], voterid: str) -> bool:
     return voterid in voters
 
 
-
-
-
-
-
-
 def is_valid_voterid(voter_id: str) -> bool:
     """
     Checks the voter id is 7 numeric digits.
@@ -220,6 +215,7 @@ def has_already_voted(voters: list[str], voterid: str) -> bool:
         raise ValueError(f"voter id is not valid: {voterid}")
 
     return voterid in voters
+
 
 def prompt_text_for_candidate(candidate: str) -> str:
     """
@@ -302,6 +298,7 @@ def print_results(tally: dict[str, int]) -> None:
     winner = determine_winner(tally)
 
     print(f"{winner} wins with the average score {tally[winner]}!\n")
+
 
 if __name__ == "__main__":
     main()
