@@ -285,6 +285,26 @@ def get_votes() -> dict[str, list]:
 
     return candidates
 
+def format_number(num: float) -> str:
+    """
+    Take a floating point number and format it to the correct decimal precision.
+
+    Rules:
+    - if the number is a whole number, then add a .0 on the end (e.g. 1 => 1.0)
+    - if the number has one decimal place then keep to one decimal place (e.g. 1.1 => 1.1)
+    - if the number has more than two decimal places, then round to two decimal places
+      (e.g. 1.333 => 1.33)
+
+    Args:
+        num(float): number to be converted to the resulting string
+
+    Returns:
+        String conforming to the rules above
+    """
+    if num % 1 == 0: # no decimal place
+        return f"{num:.1f}"
+
+    return f"{num:.3g}"
 
 def print_results(tally: dict[str, int]) -> None:
     """
@@ -297,11 +317,11 @@ def print_results(tally: dict[str, int]) -> None:
     print("\nResults\n")
 
     for candidate in tally:
-        print(f"{candidate}: {tally[candidate]:.2g}")
+        print(f"{candidate}: {format_number(tally[candidate])}")
 
     winner = determine_winner(tally)
 
-    print(f"{winner} wins with the average score {tally[winner]:.2g}!\n")
+    print(f"{winner} wins with the average score {format_number(tally[winner])}!\n")
 
 
 if __name__ == "__main__":
