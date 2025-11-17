@@ -110,7 +110,7 @@ def is_valid_voterid(voter_id: str) -> bool:
     except ValueError:
         return False
     else:
-        return voter_id_int >= 1000000 and voter_id_int <= 9999999
+        return len(voter_id) == 7 and voter_id_int >= 1000000 and voter_id_int <= 9999999
 
 
 def is_valid_vote(vote: str) -> bool:
@@ -293,11 +293,11 @@ def print_results(tally: dict[str, int]) -> None:
     print("\nResults\n")
 
     for candidate in tally:
-        print(f"{candidate}: {tally[candidate]}")
+        print(f"{candidate}: {tally[candidate]:.2g}")
 
     winner = determine_winner(tally)
 
-    print(f"{winner} wins with the average score {tally[winner]}!\n")
+    print(f"{winner} wins with the average score {tally[winner]:.2g}!\n")
 
 
 if __name__ == "__main__":
