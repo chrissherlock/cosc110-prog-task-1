@@ -110,7 +110,9 @@ def is_valid_voterid(voter_id: str) -> bool:
     except ValueError:
         return False
     else:
-        return len(voter_id) == 7 and voter_id_int >= 1000000 and voter_id_int <= 9999999
+        return (
+            len(voter_id) == 7 and voter_id_int >= 1000000 and voter_id_int <= 9999999
+        )
 
 
 def is_valid_vote(vote: str) -> bool:
@@ -149,7 +151,7 @@ def has_already_voted(voters: list[str], voterid: str) -> bool:
     """
 
     # preconditions
-    if not is_valid_voterid(voterid):
+    if not is_valid_voterid(str(voterid)):
         raise ValueError(f"voter id is not valid: {voterid}")
 
     return voterid in voters
@@ -172,7 +174,9 @@ def is_valid_voterid(voter_id: str) -> bool:
     except ValueError:
         return False
     else:
-        return voter_id_int >= 1000000 and voter_id_int <= 9999999
+        return (
+            len(voter_id) == 7 and voter_id_int >= 1000000 and voter_id_int <= 9999999
+        )
 
 
 def is_valid_vote(vote: str) -> bool:
@@ -260,7 +264,7 @@ def get_votes() -> dict[str, list]:
         if voterid == "":
             break
 
-        if not is_valid_voterid(voterid):
+        if not is_valid_voterid(str(voterid)):
             print("Invalid Voter ID\n")
             continue
 
