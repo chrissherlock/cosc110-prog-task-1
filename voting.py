@@ -157,70 +157,6 @@ def has_already_voted(voters: list[str], voterid: str) -> bool:
     return voterid in voters
 
 
-def is_valid_voterid(voter_id: str) -> bool:
-    """
-    Checks the voter id is 7 numeric digits.
-
-    Args:
-        voter_id(str): The voter ID to be validated.
-
-    Returns:
-        True if the voter id is valid, False if the voter id is invalid
-    """
-
-    # preconditions
-    try:
-        voter_id_int = int(voter_id)
-    except ValueError:
-        return False
-    else:
-        return (
-            len(voter_id) == 7 and voter_id_int >= 1000000 and voter_id_int <= 9999999
-        )
-
-
-def is_valid_vote(vote: str) -> bool:
-    """
-    Checks the vote is between 0 and 9.
-
-    Args:
-        vote(str): vote preference value for the candidate
-
-    Returns:
-        True if the vote pref is valid, False if the vote pref is invalid
-    """
-
-    # preconditions
-    try:
-        vote_int = int(vote)
-    except ValueError:
-        return False
-    else:
-        return len(vote) == 1 and vote_int >= 0 and vote_int <= 9
-
-
-def has_already_voted(voters: list[str], voterid: str) -> bool:
-    """
-    Checks if the voter has already voted.
-
-    Args:
-        voters(list): list of voters who have already voted.
-
-    Raises:
-        ValueError: if not a valid voterid
-
-    Returns:
-        True if the voter has already voted, False if the voter has
-        not voted.
-    """
-
-    # preconditions
-    if not is_valid_voterid(str(voterid)):
-        raise ValueError(f"voter id is not valid: {voterid}")
-
-    return voterid in voters
-
-
 def prompt_text_for_candidate(candidate: str) -> str:
     """
     Generates the prompt to rate a candidate.
@@ -285,6 +221,7 @@ def get_votes() -> dict[str, list]:
 
     return candidates
 
+
 def format_number(num: float) -> str:
     """
     Take a floating point number and format it to the correct decimal precision.
@@ -301,10 +238,11 @@ def format_number(num: float) -> str:
     Returns:
         String conforming to the rules above
     """
-    if num % 1 == 0: # no decimal place
+    if num % 1 == 0:  # no decimal place
         return f"{num:.1f}"
 
     return f"{num:.3g}"
+
 
 def print_results(tally: dict[str, int]) -> None:
     """
