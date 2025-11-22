@@ -51,10 +51,13 @@ def tally_candidates(candidates: dict[str, list]) -> dict[str, int]:
 
     """
 
+    # note: this could be better expressed as a dict comprehension, but for the
+    # purposes of the assignment I'll keep this a loop
+
     tally: dict[str, int] = {}
 
-    for candidate in candidates:
-        tally[candidate] = get_candidate_average_votes(candidates[candidate])
+    for candidate, votes in candidates.items():
+        tally[candidate] = get_candidate_average_votes(votes)
 
     return tally
 
@@ -254,8 +257,8 @@ def print_results(tally: dict[str, int]) -> None:
 
     print("\nResults\n")
 
-    for candidate in tally:
-        print(f"{candidate}: {format_number(tally[candidate])}")
+    for candidate, votes in tally.items():
+        print(f"{candidate}: {format_number(votes)}")
 
     winner = determine_winner(tally)
 
