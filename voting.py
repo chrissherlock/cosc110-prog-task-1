@@ -33,10 +33,7 @@ def get_candidate_average_votes(votes: list) -> float:
     if not all(isinstance(vote, int) for vote in votes):
         raise TypeError("all the votes must be an integer")
 
-    if len(votes) == 0:
-        return 0
-
-    return sum(votes) / len(votes)
+    return 0 if len(votes) == 0 else sum(votes) / len(votes)
 
 
 def tally_candidates(candidates: dict[str, list]) -> dict[str, int]:
@@ -51,15 +48,7 @@ def tally_candidates(candidates: dict[str, list]) -> dict[str, int]:
 
     """
 
-    # note: this could be better expressed as a dict comprehension, but for the
-    # purposes of the assignment I'll keep this a loop
-
-    tally: dict[str, int] = {}
-
-    for candidate, votes in candidates.items():
-        tally[candidate] = get_candidate_average_votes(votes)
-
-    return tally
+    return {candidate: get_candidate_average_votes(votes) for candidate, votes in candidates.items()}
 
 
 def determine_winner(tally: dict[str, int]) -> str:
