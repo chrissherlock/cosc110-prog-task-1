@@ -31,7 +31,7 @@ def get_candidate_average_votes(votes: list) -> float:
     # preconditions
     # use a generator expression to check the type of each element in the list
     if not all(isinstance(vote, int) for vote in votes):
-        raise TypeError("all the votes must be an integer")
+        raise ValueError("all the votes must be an integer")
 
     return 0 if len(votes) == 0 else sum(votes) / len(votes)
 
