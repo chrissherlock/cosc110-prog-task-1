@@ -124,7 +124,7 @@ def is_valid_vote(vote: str) -> bool:
     except ValueError:
         return False
     else:
-        return vote_int >= 0 and vote_int <= 9
+        return len(vote) == 1 and vote_int >= 0 and vote_int <= 9
 
 
 def has_already_voted(voters: list[str], voterid: str) -> bool:
